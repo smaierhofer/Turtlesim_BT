@@ -71,6 +71,38 @@ All logic is modular and defined via condition and action nodes in the XML.
    - [`behaviortree_cpp_v3`](https://github.com/BehaviorTree/BehaviorTree.CPP): Used for creating the behavior tree.
    - [`Groot`](https://github.com/BehaviorTree/Groot) : For visual editor and debugger for Behavior Trees
 
+   If you are using the **VS Code Dev Container** in this repository (with **ROS 2 Humble**), you need to install `behaviortree_cpp_v3` and `Groot` **manually** inside the container
+
+<details>
+<summary><strong>Installation commands behaviortree_cpp_v3</strong></summary>
+
+```bash
+sudo apt update
+sudo apt install ros-humble-behaviortree-cpp-v3
+```
+</details>
+<details>
+<summary><strong>Installation commands Groot</strong></summary>
+
+```bash
+sudo apt update
+sudo apt install git build-essential qtbase5-dev libqt5svg5-dev qttools5-dev
+
+cd ~
+git clone https://github.com/BehaviorTree/Groot.git
+cd Groot
+git checkout v1   # Important: Use v1 for BehaviorTree.CPP v3
+
+mkdir build && cd build
+cmake ..
+make -j$(nproc)
+sudo make install
+```
+To run Groot, execute `Groot` or `./Groot`.
+</details>
+
+
+
 3. **Clone the Repository**:
    Clone this repository to your workspace and build the package.
    ```bash
